@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_match/auth/screens/welcome/welcome_screen.dart';
 import 'package:study_match/constants/supabase_constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(),
+      home: const WelcomeScreen(),
     );
   }
 }
