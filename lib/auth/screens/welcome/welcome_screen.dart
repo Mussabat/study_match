@@ -1,7 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:study_match/auth/screens/welcome/login_page.dart';
-import 'package:study_match/auth/screens/welcome/welcome_page.dart';
+import 'package:study_match/auth/screens/welcome/pages/page_1.dart';
+import 'package:study_match/auth/screens/welcome/pages/page_2.dart';
+import 'package:study_match/auth/screens/welcome/pages/page_3.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -30,13 +31,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   });
                 },
                 children: const [
-                  WelcomePage(),
-                  LoginPage(),
+                  Page1(),
+                  Page2(),
+                  Page3(),
                 ],
               ),
             ),
             DotsIndicator(
-              dotsCount: 2,
+              dotsCount: 3,
               position: _currentPage,
             ),
           ],
