@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
@@ -32,8 +33,7 @@ class Page3 extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             FilledButton(
-              onPressed: () => debugPrint(
-                  'Clicked!'), //Navigator.of(context).pushNamed('/login'),
+              onPressed: () => context.go('/sign_in'),
               child: const Text('GET STARTED'),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
