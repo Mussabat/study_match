@@ -33,7 +33,7 @@ class Page3 extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             FilledButton(
-              onPressed: () => context.go('/sign_in'),
+              onPressed: () => context.goNamed('sign_in'),
               child: const Text('GET STARTED'),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),

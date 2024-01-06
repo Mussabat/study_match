@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -112,14 +113,14 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: const SizedBox(
                           width: double.infinity,
                           child: Center(
-                            child: Text('LOGIN'),
+                            child: Text('LOG IN'),
                           ),
                         ),
                       ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.002),
                 TextButton(
                   child: const Text('Create an account'),
-                  onPressed: () {},
+                  onPressed: () => context.goNamed('sign_up'),
                 ),
               ],
             ),

@@ -4,10 +4,10 @@ import 'package:study_match/router/routes.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
-  // await Supabase.initialize(
-  //   url: SupabaseConstants.supabaseUrl,
-  //   anonKey: SupabaseConstants.supabaseKey,
-  // );
+  await Supabase.initialize(
+    url: SupabaseConstants.supabaseUrl,
+    anonKey: SupabaseConstants.supabaseKey,
+  );
   runApp(const MyApp());
 }
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(103, 58, 183, 1)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       routerConfig: router,
