@@ -1,1 +1,1 @@
-export 'signup_bloc.dart';
+export 'signup/signup.dart';

@@ -1,13 +1,12 @@
 import 'package:go_router/go_router.dart';
-import 'package:study_match/auth/screens/sign_in/sign_in_screen.dart';
-import 'package:study_match/auth/screens/sign_in/sign_up_screen.dart';
-import 'package:study_match/auth/screens/welcome/welcome_screen.dart';
+import 'package:study_match/auth/authentication.dart';
+import 'package:study_match/home/home.dart';
 
 final router = GoRouter(
   routes: [
     GoRoute(
       name: 'welcome',
-      path: '/',
+      path: '/welcome',
       builder: (context, state) => const WelcomeScreen(),
     ),
     GoRoute(
@@ -22,5 +21,10 @@ final router = GoRouter(
         ),
       ],
     ),
+    GoRoute(
+      name: 'home',
+      path: '/',
+      builder: (context, state) => const HomeScreen(),
+    )
   ],
 );
