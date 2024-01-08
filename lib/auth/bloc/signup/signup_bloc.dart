@@ -5,7 +5,6 @@ part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  final _authService = AuthService();
   SignupBloc() : super(SignupInitial()) {
     on<SignupSubmitted>(_onSubmitted);
   }
@@ -14,7 +13,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       SignupSubmitted event, Emitter<SignupState> emit) async {
     emit(SignupLoading());
 
-    final (_, _, exception) = await _authService.signUp(
+    final (_, _, exception) = await AuthService.instance.signUp(
       email: event.email,
       password: event.password,
       username: event.username,
