@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:study_match/auth/authentication.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'package:study_match/home/home.dart';
@@ -10,31 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthRedirectBloc(),
-      child: BlocConsumer<AuthRedirectBloc, AuthRedirectState>(
-        listener: (context, state) {
-          if (state is AuthRedirectInitial) {
-            context.read<AuthRedirectBloc>().add(AuthRedirectCheck());
-          }
-
-          if (state is AuthRedirectUnauthenticated) {
-            context.goNamed('welcome');
-          }
-        },
-        builder: (context, state) {
-          if (state is AuthRedirectAuthenticated) {
-            return HomeScreenView(user: state.user);
-          }
-
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        },
-      ),
-    );
+    return HomeScreenView(user: UserService.instance.getUser()!);
   }
 }
 
@@ -46,6 +22,17 @@ class HomeScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await AuthService.instance.logOut();
+              if (context.mounted) context.goNamed('sign_in');
+            },
+            icon: const Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: Center(
         child: Text(
           user.userMetadata?['username'] != null

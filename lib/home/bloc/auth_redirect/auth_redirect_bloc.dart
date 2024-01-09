@@ -6,14 +6,12 @@ part 'auth_redirect_event.dart';
 part 'auth_redirect_state.dart';
 
 class AuthRedirectBloc extends Bloc<AuthRedirectEvent, AuthRedirectState> {
-  final _userService = UserService();
-
   AuthRedirectBloc() : super(AuthRedirectInitial()) {
     on<AuthRedirectCheck>(_onCheck);
   }
 
-  void _onCheck(AuthRedirectEvent event, Emitter<AuthRedirectState> emit) {
-    final user = _userService.getUser();
+  void _onCheck(AuthRedirectCheck event, Emitter<AuthRedirectState> emit) {
+    final user = UserService.instance.getUser();
     if (user != null) {
       emit(AuthRedirectAuthenticated(user: user));
     } else {

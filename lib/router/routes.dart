@@ -6,7 +6,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       name: 'welcome',
-      path: '/welcome',
+      path: '/',
       builder: (context, state) => const WelcomeScreen(),
     ),
     GoRoute(
@@ -23,7 +23,7 @@ final router = GoRouter(
     ),
     GoRoute(
       name: 'home',
-      path: '/',
+      path: '/home',
       builder: (context, state) => const HomeScreen(),
     )
   ],

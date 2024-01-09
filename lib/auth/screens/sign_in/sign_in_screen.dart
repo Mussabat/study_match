@@ -63,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     decoration: const InputDecoration(
                       hintText: 'Enter your email',
                       border: OutlineInputBorder(),
-                      label: Text('email'),
+                      label: Text('Email'),
                     ),
                     textInputAction: TextInputAction.next,
                   ),
