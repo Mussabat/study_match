@@ -62,6 +62,13 @@ final router = GoRouter(
           parentNavigatorKey: _shellNavigatorKey,
           builder: (context, state) =>
               ProfileScreen(user: Supabase.instance.client.auth.currentUser!),
+          routes: [
+            GoRoute(
+              name: 'connections',
+              path: 'connections',
+              builder: (context, state) => const ConnectionsScreen(),
+            ),
+          ],
         )
       ],
     )
