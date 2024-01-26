@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_match/auth/authentication.dart';
+import 'package:study_match/chat/screens/chat_screen.dart';
 import 'package:study_match/explore/screens/explore_screen.dart';
 import 'package:study_match/home/home.dart';
 import 'package:study_match/profile/screens/screens.dart';
+import 'package:study_match/profile/screens/tags_screen.dart';
 import 'package:study_match/router/navbar.dart';
 import 'package:study_match/search/search.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -31,6 +33,14 @@ final router = GoRouter(
           builder: (context, state) => const SignUpScreen(),
         ),
       ],
+    ),
+    GoRoute(
+      name: 'chat',
+      path: '/chat/:chatId/:name',
+      builder: (context, state) => ChatScreen(
+        chatId: state.pathParameters['chatId'] as String,
+        chatName: state.pathParameters['name'] as String,
+      ),
     ),
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
@@ -67,6 +77,11 @@ final router = GoRouter(
               name: 'connections',
               path: 'connections',
               builder: (context, state) => const ConnectionsScreen(),
+            ),
+            GoRoute(
+              name: 'tags',
+              path: 'tags',
+              builder: (context, state) => const TagsScreen(),
             ),
           ],
         )

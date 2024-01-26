@@ -51,19 +51,19 @@ class ProfileScreen extends StatelessWidget {
 
 final _menuOntap = [
   (BuildContext context) => context.goNamed('connections'),
-  (BuildContext context) => print('Manage Communities'),
+  (BuildContext context) => context.goNamed('tags'),
   (BuildContext context) => context.read<LoginOutBloc>().add(LogoutSubmitted()),
 ];
 
 final _menuItems = [
   'Manage Connections',
-  'Manage Communities',
+  'Manage Tags',
   'Logout',
 ];
 
 final _menuIcons = [
   Icons.people,
-  Icons.group,
+  Icons.tag,
   Icons.logout,
 ];
 

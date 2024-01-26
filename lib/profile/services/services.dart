@@ -1,2 +1,3 @@
-export 'user_service.dart';
 export 'connections_service.dart';
+export 'profile_service.dart';
+export 'tag_service.dart';
