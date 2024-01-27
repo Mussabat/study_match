@@ -62,10 +62,10 @@ class TagService {
 
   Future<String?> _getTagId(String tag) async {
     final tagResponse = await supabase.from('tags').select('id').eq('tag', tag);
-
-    if (tagResponse == null) return null;
-
     final tagData = tagResponse as List<dynamic>;
+
+    if (tagData.isEmpty) return null;
+
     final tagId = tagData.first['id'] as String;
 
     return tagId;
@@ -89,7 +89,7 @@ class TagService {
 
     await supabase.from('user_tags').insert({
       'user_id': supabase.auth.currentUser!.id,
-      'tag_id': tagResponse,
+      'tag_id': tagResponse.first['id'] as String,
     });
   }
 
